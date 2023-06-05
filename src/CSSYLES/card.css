@@ -1,0 +1,31 @@
+.card-container {
+  display: grid;
+  background-color: rgb(255, 255, 255);
+  grid-template-columns: repeat(4, 0fr);
+  grid-gap: 15px;
+  justify-content: center;
+  padding-top: 5%;
+}
+
+.card {
+  width: 300px;
+  height: 90px;
+  background-color: #5f9df7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: aliceblue;
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease; /* Transición lenta para los cambios */
+}
+.card:hover {
+  transform: scale(1.1); 
+  background-color: #1999cc; 
+  cursor: pointer;;
+  color: rgb(0, 217, 255); 
+}
+.card.new-line {
+  grid-column: span 1;
+}

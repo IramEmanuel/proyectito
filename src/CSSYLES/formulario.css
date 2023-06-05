@@ -1,0 +1,126 @@
+#Formulario {
+  background-size: cover;
+  background-position: center;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('../images/chris-nguyen-lbmrrNgq2lo-unsplash.jpg');
+}
+#LogIn{
+  background-size: cover;
+  background-position: center;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('../images/chris-nguyen-lbmrrNgq2lo-unsplash.jpg');
+}
+body {
+  margin: 0;
+  font-family: 'Jost';
+
+}
+.h1{
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 45px;
+  line-height: 109px;
+  text-align: center;
+  color: #FFFFFF;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+
+  }
+  
+  .rectangle {
+    background: #FFFFFF;
+    box-shadow: 0px 4px 10px 5px rgba(0, 0, 0, 0.26);
+    border-radius: 15px;
+    width: fit-content;
+    margin-top: -20px;
+    height: 600px;
+  }
+  .rectangle2 {
+    background: #FFFFFF;
+    box-shadow: 0px 4px 10px 5px rgba(0, 0, 0, 0.26);
+    border-radius: 15px;
+    width: fit-content;
+    margin-top: -20px;
+    height: 350px;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 45px;
+  }
+  
+  
+  .form input::placeholder {
+    text-align: center; 
+    
+  }
+  
+  .form input {
+    border: 2px solid #1746A2;
+    border-radius: 5px;
+    height: 58px;
+    width: 367px;
+    text-align: center;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+  }
+  .form input[name="input4"],
+  .form input[name="input5"] {
+   width: 180px; 
+   
+  }
+  input:focus {
+    text-align: center;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+  }
+  
+.union {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  }
+.boton{
+  background: #1746A2;
+  color: #FFFFFF;
+  border-radius: 10px;
+  border-color: transparent;
+  width: 160px;
+  height: 44px;
+}
+.boton:hover{
+  background-color: rgb(0, 255, 255);
+  cursor: pointer;
+}
+.Redireccion1{
+  color: #1746A2;
+  border-color: transparent;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+}
+.Redireccion1:hover{
+  color: aqua;
+  cursor: pointer;
+}
+.botones{
+  padding-top: 30px;
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+}
+
+
+
+  
+  

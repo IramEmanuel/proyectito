@@ -1,0 +1,33 @@
+.contenedor{
+display: flex;
+align-items: center;
+position: fixed;
+justify-content: flex-end;
+background: #B9DEE0;
+width: 100%;    
+height: 70px;
+top: 0;
+}
+.links{
+ display: flex;
+ flex-direction: row;
+ justify-content: end;
+ padding: 5px;
+ align-items: center;
+ padding-right: 1%;
+ gap: 60px;
+}
+.links a {
+    text-decoration: none;
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    color: #000000;
+}
+.links a:hover {
+    color: blue;
+}
+.links li {
+    list-style: none;
+  }
