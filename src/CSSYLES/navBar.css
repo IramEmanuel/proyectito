@@ -5,6 +5,7 @@ position: fixed;
 justify-content: flex-end;
 background: #B9DEE0;
 width: 100%;    
+z-index: 100;
 height: 70px;
 top: 0;
 }

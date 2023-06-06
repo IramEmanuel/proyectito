@@ -1,4 +1,4 @@
-import './App.css';
+
 import Formulario from './Components/formulario';
 import Login from './Components/LogIn';
 import NavBar from './Components/navBar';
