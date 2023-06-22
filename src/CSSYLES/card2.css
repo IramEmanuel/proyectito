@@ -1,10 +1,10 @@
 .card1 {
     position: flex;
-    width: 331px;
-    height: 450px;
+    width: 300px;
+    height: 410px;
     background-color: #B9DEE0;
     border: 1px solid #ddd7d7;
-    border-radius: 4px;
+    border-radius:14px;
     box-shadow: 5px 2px 4px rgba(0, 0, 0, 0.1);
   }
   .contenedor-cartas{
@@ -22,12 +22,13 @@
     background-color: #1999cc; 
     cursor: pointer;;
     transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease; /* Transición lenta para los cambios */
-    color: rgb(255, 255, 255); 
+    color: azure;
   }
   .card1-image {
     width: 100%;
     height: 60%;
     margin-bottom: 5px;
+    border-radius: 15px;
   }
   
   .card1-name {
@@ -37,9 +38,15 @@
     text-align: center;
   }
   
+  
   .card1-info {
     display: flex;
     align-items: center;
+  }
+  .card1-fecha {
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
   }
   
   .card1-value {
@@ -52,6 +59,6 @@
     margin: 0;
     font-weight: bold;
     font-size: 18px;
-    color: #d17b2b;
+    padding-right: 2px;
     padding-left: 25%;
   }

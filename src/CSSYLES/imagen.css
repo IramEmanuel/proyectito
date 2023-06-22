@@ -26,6 +26,7 @@
   .Texto {
     font-family: 'Jost';
     font-style: normal;
+    position: absolute;
     font-weight: 700;
     font-size: 45px;
     line-height: 58px;
@@ -33,7 +34,8 @@
     color: #FFFFFF;
     display: flex;
     max-width: 40%;
-    padding-top: 19%;
+    padding-top: 3%;
+    padding-left: 50%;
     letter-spacing: 3px;
     animation: aparecer 4s steps(100) 1;
     animation-fill-mode: forwards;
@@ -54,7 +56,6 @@
     justify-content:flex-end;
     display: flex;
     height: 800px;
-    background-image:url('../images/1.jpg');
     background-size: cover;
    }
   

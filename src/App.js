@@ -7,13 +7,17 @@ import Cards from './Components/cards';
 import Image from './Components/imagepostheader';
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Aboutus from './Components/Aboutus';
 
 function App() {
   return (
     <Router>
       <Routes>
-         <Route exact path="/" element={<Menu />} 
-         />
+         <Route exact path="/" element={<Menu/>}/>
+         <Route exact path="/Aboutus" element={<Aboutus/>}/>
+         <Route exact path="/Aboutus" element={<Aboutus/>}/>
+         <Route exact path="/Aboutus" element={<Aboutus/>}/>
+         <Route exact path="/Aboutus" element={<Aboutus/>}/>
        </Routes>
     </Router>
   );

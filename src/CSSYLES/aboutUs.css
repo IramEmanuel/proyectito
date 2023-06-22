@@ -1,0 +1,80 @@
+h1{
+    justify-content: center;
+    display: flex;
+    margin-top: 50px ;
+    margin-bottom: 100px;
+}
+.contenedor_2{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding-bottom: 4%;
+}
+.Servicios{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-right: 5%;
+    align-items: center;
+}
+.Problema{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-right: 5%;
+    align-items: center;
+}
+/* Estilo base del contenido */
+.content {
+    opacity: 0;
+    transition: opacity 1.0s ease-in-out;
+  }
+  
+  .content.show {
+    opacity: 1;
+  }
+.imagen_3{
+    padding-left: 100px;
+}
+.Propuesta{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-right: 5%;
+    padding-top: 10%;
+    align-items: center;
+}
+.texto_empresa{
+    width: 40%;
+    padding-left: 5%;
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 43px;
+    text-align: center;
+}
+.texto_problema{
+    width: 40%;
+    padding-left: 5%;
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 43px;
+    text-align: center;
+}
+.texto_Propuesta{
+    width: 40%;
+    padding-left: 5%;
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 43px;
+    text-align: center;
+}
+.Imagenes_contenidas{
+    object-fit: cover;
+    width: 45%;
+}

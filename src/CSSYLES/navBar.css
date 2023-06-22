@@ -9,6 +9,16 @@ z-index: 100;
 height: 70px;
 top: 0;
 }
+.Icons{
+ transform: scale(1.0);
+}
+.Icons:hover {
+    transform: scale(1.1); 
+    background-color: #1999cc; 
+    cursor: pointer;;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease; /* Transición lenta para los cambios */
+    color: azure;
+  }
 .links{
  display: flex;
  flex-direction: row;

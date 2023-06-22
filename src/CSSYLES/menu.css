@@ -1,6 +1,26 @@
 .menuprincipal{
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(255, 34, 34);
     height: 100vh;
+}
+.Shortby{
+font-family: 'Jost';
+font-style: normal;
+font-weight: 700;
+font-size: 35px;
+line-height: 51px;
+margin-top: 5%;
+text-align: center;
+color: #000000;
+}
+
+.Recently{
+font-family: 'Jost';
+font-style: normal;
+font-weight: 700;
+font-size: 35px;
+line-height: 51px;
+text-align: center;
+margin-top: 5%;
+color: #000000;
 }

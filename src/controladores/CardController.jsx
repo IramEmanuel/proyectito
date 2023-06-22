@@ -1,7 +1,7 @@
 import React from 'react';
 import '../CSSYLES/card2.css'
 
-const CardController = ({ image, name, value, text }) => {
+const CardController = ({ image, name, value, text,fecha }) => {
   return  (
     
     <div className="card1">
@@ -11,6 +11,7 @@ const CardController = ({ image, name, value, text }) => {
         <span className="card1-value">{value}</span>
         <p className="card1-text">{text}</p>
       </div>
+      <p className='card1-fecha'>{fecha}</p>
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import CardController from '../controladores/CardController';
+import CardController from '../controladores/cardController';
 import '../CSSYLES/card2.css'
 import Imagen1 from '../images/2.jpg'
 const App = () => {
@@ -10,6 +10,7 @@ const App = () => {
         name="Nombre de la tarjeta"
         value="100 MXN"
         text="20 unidades"
+        fecha="agregado: 17/81/21"
       />
       <CardController
         image={Imagen1}

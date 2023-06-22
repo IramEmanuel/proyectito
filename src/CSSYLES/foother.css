@@ -1,0 +1,34 @@
+.contenedor_foother{
+    width: 100%;
+    height: 207px;
+    background-color: #B9DEE0;
+    margin-top: 150px;
+    align-items: center;
+    flex-direction: row;
+    display: flex;
+    position:relative ;
+    justify-content: space-between;
+}
+.texto1_foother{
+ width: 490px;
+ padding-left: 50px;
+ font-family: 'Jost';
+ font-style: normal;
+ font-weight: 300;
+ font-size: 20px;
+ line-height: 29px;
+ text-align: justify;
+ color: #000000;
+
+}
+.contactos_foother{
+  
+ font-family: 'Jost';
+ font-style: normal;
+ font-weight: 300;
+ font-size: 20px;
+ line-height: 29px;
+ text-align: justify;
+ color: #000000;
+ padding-right: 50px;
+}
