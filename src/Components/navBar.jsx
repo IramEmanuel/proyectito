@@ -2,15 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../CSSYLES/navBar.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faInfoCircle, faEnvelope, faUser, faSearch } from '@fortawesome/free-solid-svg-icons';
-import Gestor from '../images/'
+import { faUser, faSearch } from '@fortawesome/free-solid-svg-icons';
+
 const navBar = () => {
   return (
     <nav className='contenedor'>
-      <img src={Gestor} alt="" />
       <ul className='links'>
         <li>
-          <Link to="/">Inicio</Link>
+          <Link to="/menu">Inicio</Link>
         </li>
         <li>
           <Link to="/Aboutus">Acerca de</Link>
@@ -19,11 +18,12 @@ const navBar = () => {
           <Link to="/contact">Contacto</Link>
         </li>
         <li>
-          <Link to="/contact"> <FontAwesomeIcon className='Icons' icon={faUser} /></Link>
+          <Link to="/invenario">Inventario</Link>
         </li>
         <li>
-          <Link to="/contact"> <FontAwesomeIcon className='Icons' icon={faSearch} /></Link>
+          <Link to="/profile"> <FontAwesomeIcon className='Icons' icon={faUser} /></Link>
         </li>
+        
       </ul>
     </nav>
   );

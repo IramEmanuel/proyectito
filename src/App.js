@@ -1,23 +1,25 @@
 
-import Formulario from './Components/formulario';
-import Login from './Components/LogIn';
-import NavBar from './Components/navBar';
-import Menu from './Components/Menu';
-import Cards from './Components/cards';
-import Image from './Components/imagepostheader';
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Aboutus from './Components/Aboutus';
+import Registro from './Components/formulario'
+import Menu from './Components/Menu'
+import Vistas from './controladores/ScrollToTop'
+import LogIn from './Components/LogIn';
+import Contact from './Components/Contact';
+import Profile from './Components/Profile';
 
 function App() {
   return (
     <Router>
+      <Vistas/>
       <Routes>
-         <Route exact path="/" element={<Menu/>}/>
+         <Route exact path="/" element={<LogIn/>}/>
+         <Route exact path="/Registro" element={<Registro/>}/>
+         <Route exact path="/Menu" element={<Menu/>}/>
          <Route exact path="/Aboutus" element={<Aboutus/>}/>
-         <Route exact path="/Aboutus" element={<Aboutus/>}/>
-         <Route exact path="/Aboutus" element={<Aboutus/>}/>
-         <Route exact path="/Aboutus" element={<Aboutus/>}/>
+         <Route exact path="/Contact" element={<Contact/>}/>
+         <Route exact path="/Profile" element={<Profile/>}/>
        </Routes>
     </Router>
   );

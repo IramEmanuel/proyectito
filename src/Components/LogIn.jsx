@@ -33,7 +33,11 @@ const LogIn = () => {
   };
 
   const handleRedirectToRegister = () => {
-    navigate('/');
+    navigate('/Registro');
+  };
+  
+  const RedirectToMenu = () => {
+    navigate('/menu');
   };
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -47,7 +51,7 @@ const LogIn = () => {
   const handleSubmit = (e) => {
   e.preventDefault();
   const values = Object.values(formValues);
-  const isValid = values.every((value) => value.length >= 5);
+  const isValid = values.every((value) => value.length >= 1);
 
   if (isValid) {
     const { input1, input2 } = formValues;
@@ -57,15 +61,19 @@ const LogIn = () => {
       Swal.fire({
         icon: 'success',
         title: 'Éxito',
-        text: 'Inicio de sesión exitoso, ¡BIENVENIDO!'
+        text: 'Inicio de sesión exitoso, ¡BIENVENIDO!',
+        confirmButtonText: 'Sí',
+      }).then((result) => {
+        if (result.isConfirmed) {
+        RedirectToMenu ();
+        }
       });
-      console.log('Formulario válido:', formValues);
-      console.log('Usuario ingresado:', user);
     } else {
       Swal.fire({
         icon: 'error',
         title: 'Error',
-        text: 'El nombre de usuario o la contraseña son incorrectos'
+        text: 'El nombre de usuario o la contraseña son incorrectos',
+        cancelButtonText: 'No',
       });
       console.log('Nombre de usuario o contraseña incorrectos');
     }
@@ -73,14 +81,13 @@ const LogIn = () => {
     Swal.fire({
       icon: 'error',
       title: 'Error',
-      text: 'Alguno de los campos no cumple con el requisito de 5 caracteres'
+      text: 'Verifica que tus datos sean validos'
     });
-    console.log('Alguno de los campos no cumple con el requisito de 5 caracteres');
   }
   };
   return (
    <div className='LogIn'>
-    <div className="container">
+    <div className="container1">
       <h1 className='h1'> Inicio de sesion </h1>
       <div className="rectangle2">
           <form className='form' onSubmit={handleSubmit}>

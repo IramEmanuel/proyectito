@@ -17,9 +17,9 @@ const modal_card = () => {
                      mas puntos de contacto a lo largo del tiempo. Junto con 
                      otros proyectos en camino.</p>
                    <div className='Texto_modal'>
-                    <p>Direccion:</p>
-                    <p>Numero telefonico:</p>
-                    <p>Directivo principal:</p>
+                    <p>Direccion: calle central</p>
+                    <p>Numero telefonico:9612778634</p>
+                    <p>Directivo principal:oscar</p>
                    </div>
             </div>
         </div>    

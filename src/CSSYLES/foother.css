@@ -2,12 +2,12 @@
     width: 100%;
     height: 207px;
     background-color: #B9DEE0;
-    margin-top: 150px;
     align-items: center;
     flex-direction: row;
     display: flex;
     position:relative ;
     justify-content: space-between;
+
 }
 .texto1_foother{
  width: 490px;

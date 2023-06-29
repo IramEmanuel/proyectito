@@ -1,0 +1,17 @@
+.Perfil_fondo{
+    width: 100%;
+    height: 400px;
+    display: flex;
+    position: relative;
+    padding-top: 70px;
+}
+.Contenedor_perfil{}
+.body_perfil{}
+.Productos_perfil{}
+.Listed_products{}
+.added_products{}
+.Imagen_perfil{}
+.Informacion_perfil{}
+.Edit_perfil{
+}
+.iconos_perfil{}
