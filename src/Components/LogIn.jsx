@@ -1,10 +1,10 @@
-import React from 'react';
-import { useNavigate  } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import axios from 'axios';
+import '../CSSYLES/formulario.css';
 import BotonContinuar from './BotonContinuar';
 import BotonRedireccion from './BotonRedireccion';
-import Swal from 'sweetalert2';
-import '../CSSYLES/formulario.css'
-import { useState, useEffect } from 'react';
 
 const LogIn = () => {
   const navigate = useNavigate();
@@ -17,14 +17,11 @@ const LogIn = () => {
     }
   }, []);
 
-
-
-
-
   const [formValues, setFormValues] = useState({
     input1: '',
     input2: '',
   });
+
   const handleCancel = () => {
     setFormValues({
       input1: '',
@@ -35,88 +32,109 @@ const LogIn = () => {
   const handleRedirectToRegister = () => {
     navigate('/Registro');
   };
-  
+
   const RedirectToMenu = () => {
     navigate('/menu');
   };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormValues((prevState) => ({
       ...prevState,
-      [name]: value
+      [name]: value,
     }));
   };
 
- 
-  const handleSubmit = (e) => {
-  e.preventDefault();
-  const values = Object.values(formValues);
-  const isValid = values.every((value) => value.length >= 1);
-
-  if (isValid) {
+  const validateLogin = () => {
     const { input1, input2 } = formValues;
-    const user = usuarios.find((usuario) => usuario.nombre === input1 && usuario.contraseña === input2);
 
-    if (user) {
-      Swal.fire({
-        icon: 'success',
-        title: 'Éxito',
-        text: 'Inicio de sesión exitoso, ¡BIENVENIDO!',
-        confirmButtonText: 'Sí',
-      }).then((result) => {
-        if (result.isConfirmed) {
-        RedirectToMenu ();
+    axios
+      .post('http://localhost:3000/api/login', { Nombre: input1, Contraseña: input2 })
+      .then((response) => {
+        const { success } = response.data;
+
+        if (success) {
+          Swal.fire({
+            icon: 'success',
+            title: 'Éxito',
+            text: 'Inicio de sesión exitoso, ¡BIENVENIDO!',
+            confirmButtonText: 'Sí',
+          }).then((result) => {
+            if (result.isConfirmed) {
+              RedirectToMenu();
+            }
+          });
+        } else {
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'El nombre de usuario o la contraseña son incorrectos',
+            cancelButtonText: 'No',
+          });
         }
+      })
+      .catch((error) => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'Error al iniciar sesión',
+          cancelButtonText: 'No',
+        });
+        console.error('Error al iniciar sesión:', error);
       });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const { input1, input2 } = formValues;
+    const isValid = input1.trim() !== '' && input2.trim() !== '';
+
+    if (isValid) {
+      validateLogin();
     } else {
       Swal.fire({
         icon: 'error',
         title: 'Error',
-        text: 'El nombre de usuario o la contraseña son incorrectos',
-        cancelButtonText: 'No',
+        text: 'Verifica que tus datos sean válidos',
       });
-      console.log('Nombre de usuario o contraseña incorrectos');
     }
-  } else {
-    Swal.fire({
-      icon: 'error',
-      title: 'Error',
-      text: 'Verifica que tus datos sean validos'
-    });
-  }
   };
+
   return (
-   <div className='LogIn'>
-    <div className="container1">
-      <h1 className='h1'> Inicio de sesion </h1>
-      <div className="rectangle2">
-          <form className='form' onSubmit={handleSubmit}>
-          <input
-            type="text"
-            name="input1"
-            placeholder="Nombre"
-            value={formValues.input1}
-            onChange={handleChange}
-          />
-          <br />
-          <input
-          type="contraseña"
-          name="input2"
-          placeholder="Contraseña"
-          value={formValues.input2}
-          onChange={handleChange}
-          required
-          />
-           <div className='botones'>
-            <button className='boton' type="button" onClick={handleCancel}>Cancelar</button>
-            <BotonContinuar onClick={handleSubmit} />
-          </div>
-          <br/>
-          <BotonRedireccion click={handleRedirectToRegister}>REGISTRATE</BotonRedireccion>
-        </form>
+    <div className="LogIn">
+      <div className="container1">
+        <h1 className="h1">Inicio de sesión</h1>
+        <div className="rectangle2">
+          <form className="form" onSubmit={handleSubmit}>
+            <input
+              type="text"
+              name="input1"
+              placeholder="Nombre"
+              value={formValues.input1}
+              onChange={handleChange}
+            />
+            <br />
+            <input
+              type="password"
+              name="input2"
+              placeholder="Contraseña"
+              value={formValues.input2}
+              onChange={handleChange}
+              required
+            />
+            <div className="botones">
+              <button className="boton" type="button" onClick={handleCancel}>
+                Cancelar
+              </button>
+              <BotonContinuar onClick={handleSubmit} />
+            </div>
+            <br />
+            <BotonRedireccion click={handleRedirectToRegister}>REGISTRATE</BotonRedireccion>
+          </form>
+        </div>
       </div>
     </div>
-  </div>
   );
 };
 
