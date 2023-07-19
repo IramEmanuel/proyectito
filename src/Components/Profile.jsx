@@ -1,6 +1,7 @@
 import React from 'react';
 import NavBar from './navBar';
 import '../CSSYLES/profile.css'
+import ImagePostHeader from './imagepostheader';
 import Fother from './foother';
 const Menu = () => {
   return (
@@ -8,9 +9,16 @@ const Menu = () => {
     <NavBar/>
       <div className='Perfil_fondo'></div>
         <div className='Contenedor_perfil'>
-          <div className='Imagen_perfil'></div>
-          <div className='Informacion_perfil'></div>
-          <div className='Edit_perfil'></div>
+          <div className='Imagen_perfil'/>
+          <div className='informacion_usuario'>
+          <div className='Informacion_perfil'>
+            Iram emanuel gordillo
+          </div>
+          <div className='Ubicacion_perfil'>
+            Tuxtla Gutierrez. Chiapas
+          </div>
+          </div>
+          <button className='Edit_perfil'>Editar perfil</button>
         </div>
         <div className='body_perfil'>
           <div className='information_perfil'></div>

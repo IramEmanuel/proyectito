@@ -18,7 +18,7 @@ const navBar = () => {
           <Link to="/contact">Contacto</Link>
         </li>
         <li>
-          <Link to="/invenario">Inventario</Link>
+          <Link to="/Invenario">Inventario</Link>
         </li>
         <li>
           <Link to="/profile"> <FontAwesomeIcon className='Icons' icon={faUser} /></Link>

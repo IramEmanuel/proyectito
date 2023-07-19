@@ -65,6 +65,21 @@ app.post('/api/login', (req, res) => {
   });
 });
 
+app.post('/api/producto', (req, res) => {
+  const { id_producto, producto, cantidad_producto, fecha_prodcuto, precio_producto,imagen_producto } = req.body;
+  const query= `INSERT INTO registro_items (id_producto, producto, cantidad_producto, imagen_producto, fecha_prodcuto, precio_producto) VALUES (?, ?, ?, ?, ?)`;
+  const values = [id_producto, producto, cantidad_producto, fecha_prodcuto, precio_producto, imagen_producto];
+
+  connection.query(query, values, (err, results) => {
+    if (err) {
+      console.error('Error al realizar la consulta en la base de datos: ', err);
+      res.status(500).json({ error: 'Error al registrar el producto' });
+    } else {
+        res.json({ success: true });
+    }
+  });
+});
+
 app.listen(port, () => {
   console.log(`Servidor en ejecución en http://localhost:${port}`);
 });
