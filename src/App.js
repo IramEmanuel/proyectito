@@ -22,7 +22,7 @@ function App() {
          <Route exact path="/Aboutus" element={<Aboutus/>}/>
          <Route exact path="/Contact" element={<Contact/>}/>
          <Route exact path="/Profile" element={<Profile/>}/>
-         <Route exact path="/Inventario" element={<Inventario/>}/>
+         <Route exact path="/inventario" element={<Inventario/>}/>
        </Routes>
     </Router>
   );
