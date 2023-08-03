@@ -1,0 +1,78 @@
+.contenedor_form_agregar {
+    display: flex;
+    justify-content: center;
+    margin: 50px;
+    border: 2px solid #1746A2;
+    border-radius: 10px;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .form_producto {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    margin: 10px;
+    justify-items: center;
+  }
+  
+  .form_producto input::placeholder {
+    text-align: center;
+  }
+
+  .form_producto input {
+    border: 1px solid #1746A2;
+    border-radius: 5px;
+    height: 78px;
+    width: 367px;
+    text-align: center;
+    box-sizing: border-box;
+    margin: 5px;
+  }
+  
+  .form_producto input[name="nombreProducto"],
+  .form_producto input[name="tienda"] {
+    width: 580px;
+  }
+  
+  .imagen_agregar {
+    width: 450px;
+    height: 450px;
+    object-fit:contain;
+  }
+  
+  .contenedor_imagen {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 40px;
+    margin-bottom: 170px;
+  }
+  .enviar_invetario{
+    background: #1746A2;
+    color: #FFFFFF;
+    border-radius: 10px;
+    border-color: transparent;
+    width: 260px;
+    margin-bottom: 20px;
+    height: 50px;
+  }
+  .enviar_invetario:hover {
+    background-color: rgb(0, 255, 255);
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+  }
+  .boton_imagen {
+    background: #1746A2;
+    color: #FFFFFF;
+    border-radius: 10px;
+    border-color: transparent;
+    width: 260px;
+    height: 80px;
+  }
+  
+  .boton_imagen:hover {
+    background-color: rgb(0, 255, 255);
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+  }
+  

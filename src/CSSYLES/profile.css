@@ -16,7 +16,8 @@
     width: 100%;
     z-index: 2;
     padding-left: 50px;
-    height: 150px;
+    position: relative;
+    justify-content: center ;
 }
 .tiulo1{
     color: #000;
@@ -68,14 +69,18 @@ h1{
     font-weight: 200;
     line-height: normal;
 }
+
 .Imagen_perfil{
+    
     background-image: url('../images/profile_picture.jpg');
-    width: 15%;
     border-radius: 50%;
     background-repeat: no-repeat;
-    background-size: contain;
-    
+    background-size: cover;
     z-index: 1; 
+    max-width: 250px;
+    min-width: 250px;
+    max-height: 235px;
+    width: 15%;
      margin-top: -8.5rem!important;
 }
 .Informacion_perfil{
@@ -133,11 +138,13 @@ line-height: normal;
     margin-left: 15%;
 }
 .img1{
-    max-width: 350px;
+    max-width: 354px;
     object-fit: contain;
     max-height: 350px;
 }
 .Imagenes_listed{
     gap: 50px;
     display: flex;
+    
 }
+

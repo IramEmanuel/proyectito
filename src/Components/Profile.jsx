@@ -51,15 +51,15 @@ const Menu = () => {
           <section className='Listed_products'>
             <h1 className='titulo1'>HOLA</h1>
               <div className='Imagenes_listed'>
-                <img  src={producto3} alt="" />
-                <img  src={producto4} alt="" />
+                <img className='img1' src={producto3} alt="" />
+                <img className='img1' src={producto4} alt="" />
               </div>
           </section>
           <section className='Listed_products'>
             <h1 className='titulo1'>HOLA</h1>
               <div className='Imagenes_listed'>
-                <img src={producto1} alt="" />
-                <img src={producto2} alt="" />
+                <img className='img1' src={producto1} alt="" />
+                <img className='img1' src={producto2} alt="" />
               </div>
           </section>
         </div>
