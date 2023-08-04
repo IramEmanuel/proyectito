@@ -1,5 +1,6 @@
 const express = require('express');
 const mysql = require('mysql');
+const multer = require('multer');
 const bodyParser = require('body-parser');
 
 const app = express();
@@ -20,6 +21,17 @@ connection.connect((err) => {
   }
 });
 
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, './uploads'); // Directory where the uploaded images will be stored
+  },
+  filename: function (req, file, cb) {
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+    cb(null, file.fieldname + '-' + uniqueSuffix + '.' + file.originalname.split('.').pop());
+  },
+});
+
+const upload = multer({ storage: storage });
 app.use(bodyParser.json());
 
 app.use((req, res, next) => {
@@ -65,9 +77,11 @@ app.post('/api/login', (req, res) => {
   });
 });
 
-app.post('/api/producto', (req, res) => {
-  const { id_producto, producto, cantidad_producto, fecha_prodcuto, precio_producto,imagen_producto } = req.body;
-  const query= `INSERT INTO registro_items (id_producto, producto, cantidad_producto, imagen_producto, fecha_prodcuto, precio_producto) VALUES (?, ?, ?, ?, ?)`;
+app.post('/api/producto', upload.single('imagen_producto'), (req, res) => {
+  const { id_producto, producto, cantidad_producto, fecha_prodcuto, precio_producto } = req.body;
+  const imagen_producto = req.file ? req.file.filename : null;
+
+  const query = `INSERT INTO registro_items (id_producto, producto, cantidad_producto, fecha_prodcuto, precio_producto, imagen_producto) VALUES (?, ?, ?, ?, ?, ?)`;
   const values = [id_producto, producto, cantidad_producto, fecha_prodcuto, precio_producto, imagen_producto];
 
   connection.query(query, values, (err, results) => {
@@ -75,7 +89,7 @@ app.post('/api/producto', (req, res) => {
       console.error('Error al realizar la consulta en la base de datos: ', err);
       res.status(500).json({ error: 'Error al registrar el producto' });
     } else {
-        res.json({ success: true });
+      res.json({ success: true });
     }
   });
 });

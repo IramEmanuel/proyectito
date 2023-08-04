@@ -15,8 +15,8 @@ const Inventario = () => {
     cantidad: '',
   });
 
-  const [imagenSeleccionada, setImagenSeleccionada] = useState(null); // Estado para almacenar el archivo de imagen seleccionado
-  const [alerta, setAlerta] = useState({ tipo: '', mensaje: '' }); // Estado para manejar las alertas
+  const [imagenSeleccionada, setImagenSeleccionada] = useState(null);
+  const [alerta, setAlerta] = useState({ tipo: '', mensaje: '' });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -34,25 +34,52 @@ const Inventario = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const { nombreProducto, codigo, tipoProducto, tienda, precio, cantidad } = formValues;
-   
-    if (nombreProducto.trim() === '' || codigo.trim() === '' || tipoProducto.trim() === '' || tienda.trim() === '' || precio.trim() === '' || cantidad.trim() === '') {
+    const {
+      nombreProducto,
+      codigo,
+      tipoProducto,
+      tienda,
+      precio,
+      cantidad
+    } = formValues;
+
+    if (
+      nombreProducto.trim() === '' ||
+      codigo.trim() === '' ||
+      tipoProducto.trim() === '' ||
+      tienda.trim() === '' ||
+      precio.trim() === '' ||
+      cantidad.trim() === ''
+    ) {
       setAlerta({ tipo: 'error', mensaje: 'Todos los campos son obligatorios' });
       return;
     }
 
+    const parsedPrecio = parseFloat(precio);
+    const parsedCantidad = parseInt(cantidad);
+
+    if (isNaN(parsedPrecio) || isNaN(parsedCantidad)) {
+      setAlerta({ tipo: 'error', mensaje: 'Precio y cantidad deben ser números válidos' });
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append('id_producto', codigo.trim());
+    formData.append('producto', nombreProducto.trim());
+    formData.append('cantidad_producto', parsedCantidad);
+    formData.append('fecha_prodcuto', new Date().toISOString());
+    formData.append('precio_producto', parsedPrecio);
+    formData.append('imagen_producto', imagenSeleccionada);
+
     axios
-      .post('http://localhost:3000/api/producto', {
-        id_producto: codigo,
-        producto: nombreProducto,
-        cantidad_producto: cantidad,
-        fecha_prodcuto: new Date().toISOString(),
-        precio_producto: precio,
-        imagen_producto: '', 
+      .post('http://localhost:3000/api/producto', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
       })
       .then((response) => {
         setAlerta({ tipo: 'success', mensaje: 'Producto registrado exitosamente' });
-       
+
         setFormValues({
           nombreProducto: '',
           codigo: '',
@@ -61,6 +88,7 @@ const Inventario = () => {
           precio: '',
           cantidad: '',
         });
+        setImagenSeleccionada(null);
       })
       .catch((error) => {
         console.error('Error al registrar el producto:', error);
@@ -82,7 +110,7 @@ const Inventario = () => {
 
   return (
     <div className='invetario_body'>
-      <NavBar />
+       <NavBar />
       <div className='Perfil_fondo'></div>
       <div className='Contenedor_perfil'>
         <div className='Imagen_perfil' />
@@ -104,7 +132,7 @@ const Inventario = () => {
           <input
             type='text'
             name='codigo'
-            placeholder='Código'
+            placeholder='Id del producto'
             value={formValues.codigo}
             onChange={handleChange}
             required
